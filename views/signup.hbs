@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form{
+            text-align: center;
+        }
+        input,select{
+            margin: 5px;
+            font-size: 20pt;
+        }
+    </style>
+</head>
+<body>
+    <form action="/signup" method="POST">
+        <select name="caorclient">
+                <option value="" style="display:none">Sign Up as</option>
+                <option> CA </option>
+                <option> User</option>
+         </select>
+         <br>
+         <input type="text" placeholder="first Name" name="firstname">
+          <br>
+         <input type="text" placeholder="last  Name" name="lastname">
+         <br>
+         <input type="email" placeholder="email" name="username">
+         <br>
+         <input type="tel" placeholder="phone number" name="phone">
+         <br>
+          <input type="password" placeholder="password" name="password">
+         <br>
+         <input type="submit" value="SignUp">
+
+    </form>
+    
+</body>
+</html>
