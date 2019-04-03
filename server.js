@@ -6,11 +6,6 @@ const passport=require('./pass_clients');
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-
-
-
-
-
 app.set('view engine','hbs');
 const{
     db
@@ -25,7 +20,6 @@ app.use(session({
 
 
 app.use(passport.initialize())
-
 app.use(passport.session())
 
 
@@ -34,14 +28,16 @@ const routes={
 
     login:require('./routes/login'),
     signup:require('./routes/signup'),
-    profile:require('./routes/profile'),
-    homepage:require('./routes/homepage')
+    homepage:require('./routes/homepage'),
+    requests:require('./routes/requests')
 }
 
 app.use('/login',routes.login);
 app.use('/signup',routes.signup);
-app.use('/profile',routes.profile);
+app.use('/public',express.static(__dirname+'/public'));
+app.use('/requests',routes.requests);
 app.use('/',routes.homepage);
+
 
 
 app.listen('4578',()=>{
