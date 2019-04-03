@@ -6,6 +6,33 @@ const db=new Sequelize({
     password:'user_manager',
     database:'caprojectdb'
 })
+const Users=db.define('users',{
+    firstname:{
+        type:Sequelize.STRING(50),
+        allowNull:false,
+        
+    },
+    lastname:{
+        type:Sequelize.STRING(50),
+    },
+    username:{
+        type:Sequelize.STRING(50),
+        allowNull:false,
+        unique:true
+    },
+    password:{
+        type:Sequelize.STRING(20),
+        allowNull:false
+
+    },
+    phone:{
+        type:Sequelize.STRING
+    },
+    isclient:{
+        type:Sequelize.BOOLEAN,
+        allowNull:false
+    }
+})
 
 
 const Clients=db.define('clients',{
@@ -40,7 +67,7 @@ const CAs=db.define('cas',{
     lastname:{
         type:Sequelize.STRING(50)
     },
-    email:{
+    username:{
         type:Sequelize.STRING(50),
         allowNull:false,
         unique:true
@@ -63,5 +90,5 @@ CAs.hasMany(Ca_Client);
 Ca_Client.belongsTo(CAs);
 
 module.exports={
-    db,Clients,CAs,Ca_Client
+    db,Clients,CAs,Ca_Client,Users
 }

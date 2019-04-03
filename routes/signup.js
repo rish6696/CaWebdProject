@@ -2,7 +2,7 @@ const express=require('express');
 const router=express.Router();
 
 const{
-    Clients,CAs
+    Clients,CAs,Users
 }=require('../db');
 
 router.get('/',(req,res)=>{
@@ -15,6 +15,15 @@ router.post('/',async (req,res)=>{
     {
         return res.status(400).send("please specify the type of client");
     }
+    const user= await Users.create({
+        firstname:req.body.firstname,
+        lastname:req.body.lastname,
+        username:req.body.username,
+        password:req.body.password,
+        phone:req.body.phone,
+        isclient:req.body.caorclient==='User'? true:false
+
+     })
     if(req.body.caorclient==='User')
     {
         const client= await Clients.create({
@@ -25,18 +34,18 @@ router.post('/',async (req,res)=>{
             phone:req.body.phone
 
          })
-         res.redirect('/login/client');
+         res.redirect('/login');
     }
     else{
         const ca= await CAs.create({
             firstname:req.body.firstname,
             lastname:req.body.lastname,
-            email:req.body.email,
+            username:req.body.username,
             password:req.body.password,
             phone:req.body.phone
 
          })
-         res.redirect('/login/ca');
+         res.redirect('/login');
         
     }
     

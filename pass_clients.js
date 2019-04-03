@@ -3,13 +3,13 @@ const LocalStrategy = require('passport-local').Strategy
 
 
 const {
-  Clients
+  Users
 } = require('./db')
 
 
 passport.use(new LocalStrategy(
   (username, password, done) => {
-    Clients.findOne({
+    Users.findOne({
       where: {
         username
       }
@@ -36,7 +36,7 @@ passport.serializeUser(
 
 passport.deserializeUser(
   (userId, done) => {
-    Clients.findByPk(userId)
+    Users.findByPk(userId)
       .then((user) => done(null, user))
       .catch(done)
   }
