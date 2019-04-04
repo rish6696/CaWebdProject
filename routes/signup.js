@@ -10,6 +10,7 @@ router.get('/',(req,res)=>{
 
 })
 router.post('/',async (req,res)=>{
+    try{
     
     if(req.body.caorclient==='')
     {
@@ -48,7 +49,13 @@ router.post('/',async (req,res)=>{
          res.redirect('/login');
         
     }
+}
+catch{
+    res.send("error")
+}
+
     
 
 })
+
 module.exports=router

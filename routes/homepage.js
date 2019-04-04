@@ -9,9 +9,13 @@ router.use('/',(req,res)=>{
     else{
         if(req.user.isclient)
         {
-           return res.render('clientpage');
+           return res.render('clientpage',{
+               user:req.user
+           });
         }
-        return res.render('capage')
+        return res.render('capage',{
+            user:req.user
+        })
     }
 })
 

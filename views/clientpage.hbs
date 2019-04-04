@@ -5,18 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="/public/jquery.js"></script>
     <script src="/public/clientscript.js"></script>
 </head>
+<div>
+    <h1>Profile</h1>
+    <ul>
+        <li id="fullname">{{ user.firstname}} {{ user.lastname}}</li>
+        <li id="email">{{user.username}}</li>
+        <li id="phone">{{user.phone}}</li>
+        <li id="id">{{user.id}}</li>
+        
+    </ul>
+</div>
 <body>
     <div style="text-align: center">
         <div>This is the list of all CA's avaliable</div>
-        <select>
-            <option>Ca raj </option>
-            <option>Ca mathur </option>
-            <option>Ca pradhuman </option>
-            <option>Ca mohita </option>
-            <option>Ca rajinder </option>
+        <select id="list">
+            <option style="display: none">Select Ca's</option>
         </select>
+        <button id="btn"> Become a Client </button>
     </div>
 </body>
 </html>
