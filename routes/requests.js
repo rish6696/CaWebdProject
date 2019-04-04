@@ -85,5 +85,15 @@ router.use('/addclient', async (req,res)=>{
     
 })
 
+router.get('/getconnectedca',async (req,res)=>{
+    const cas=await Ca_Client.findAll({
+        where:{
+            clientId:1
+        },
+        include:[CAs]
+    })
+    res.send(cas);
+})
+
 
 module.exports=router;
