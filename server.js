@@ -29,13 +29,15 @@ const routes={
     login:require('./routes/login'),
     signup:require('./routes/signup'),
     homepage:require('./routes/homepage'),
-    requests:require('./routes/requests')
+    requests:require('./routes/requests'),
+    fileuploads:require('./routes/fileupload')
 }
 
 app.use('/login',routes.login);
 app.use('/signup',routes.signup);
 app.use('/public',express.static(__dirname+'/public'));
 app.use('/requests',routes.requests);
+app.use('/addfile',routes.fileuploads);
 app.use('/',routes.homepage);
 
 

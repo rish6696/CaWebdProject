@@ -104,6 +104,16 @@ Ca_Client.belongsTo(Clients);
 CAs.hasMany(Ca_Client);
 Ca_Client.belongsTo(CAs);
 
+const Uploads=db.define('uploads',{
+    filename:{
+        type:Sequelize.STRING
+    }
+})
+CAs.hasMany(Uploads);
+Uploads.belongsTo(CAs);
+
+Clients.hasMany(Uploads);
+Uploads.belongsTo(Clients);
 module.exports={
-    db,Clients,CAs,Ca_Client,Users,Codes
+    db,Clients,CAs,Ca_Client,Users,Codes,Uploads
 }

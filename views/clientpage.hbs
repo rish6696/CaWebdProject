@@ -25,6 +25,18 @@
             <option style="display: none">Select Ca's</option>
         </select>
         <button id="btn"> Become a Client </button>
+        <div>Choose the Ca to upload file</div>
+        <br>
+        <select id="alist">
+            <option style="display: none">choose Ca's</option>
+        </select>
+        <form action="/addfile" method="POST" enctype="multipart/form-data" id="form">
+            <input type="file" name="avatar">
+            <input type="submit">
+        </form>
+
+
+    
     </div>
 </body>
 </html>

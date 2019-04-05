@@ -5,6 +5,11 @@ const{
 }=require('../db');
 const main=require('./mail');
 
+
+  
+
+
+
 router.get('/getca',async (req,res)=>{
 
     const cas= await CAs.findAll();
@@ -50,7 +55,6 @@ router.post('/addcode', async (req,res)=>{
             username:causername
         }
     })
-    console.log(ca);
     const ca_client=await Codes.create({
         unicode:code,
         clientid:c_id,
@@ -85,15 +89,19 @@ router.use('/addclient', async (req,res)=>{
     
 })
 
-router.get('/getconnectedca',async (req,res)=>{
+router.post('/getconnectedca',async (req,res)=>{
     const cas=await Ca_Client.findAll({
         where:{
-            clientId:1
+            clientId:req.body.clientid
         },
-        include:[CAs]
+        include:[{
+            model:CAs,
+            attributes:['firstname','lastname','phone']
+        }]
     })
     res.send(cas);
 })
+
 
 
 module.exports=router;
