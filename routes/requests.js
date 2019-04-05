@@ -1,7 +1,7 @@
 const express=require('express');
 const router=express.Router();
 const{
-    CAs,Ca_Client,Codes,Clients
+    CAs,Ca_Client,Codes,Clients,Uploads
 }=require('../db');
 const main=require('./mail');
 
@@ -24,6 +24,17 @@ router.post('/getclientfromuserid', async (req,res)=>{
         }
     })
     res.send(client)
+
+
+})
+router.post('/getcafromuserid', async (req,res)=>{
+    
+    const ca =await CAs.findOne({
+        where:{
+            username:req.body.username
+        }
+    })
+    res.send(ca)
 
 
 })
@@ -100,6 +111,21 @@ router.post('/getconnectedca',async (req,res)=>{
         }]
     })
     res.send(cas);
+})
+
+router.post('/getuploadsforca', async(req,res)=>{
+    const upload= await Uploads.findAll({
+        where:{
+            caId:req.body.caid
+        },
+        include:[
+            {
+                model:Clients,
+                attributes:['firstname','lastname','phone']
+            }
+        ]
+    })
+    res.send(upload);
 })
 
 
