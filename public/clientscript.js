@@ -47,7 +47,7 @@ $(()=>{
                     Name:${$('#fullname').text()}
                     Email:${$('#email').text()}
                     phone:${$('#phone').text()}
-                    To add this user to your account click http://localhost:4578/requests/addclient?unicode=${unicodem}`
+                    To add this user to your account click https://yourdocman.herokuapp.com/requests/addclient?unicode=${unicodem}`
                 },(data)=>{
                     
                 })

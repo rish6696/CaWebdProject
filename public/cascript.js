@@ -35,7 +35,7 @@ $(()=>{
    
 })
 $(document).on('click','.downbuttons',function(){
-    window.location=`http://localhost:4578/requests/getfile?filename=${filename}`
+    window.location=`https://yourdocman.herokuapp.com/requests/getfile?filename=${filename}`
 });
 
 
