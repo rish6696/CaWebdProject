@@ -2,6 +2,7 @@ const express=require('express');
 const app=express();
 const session=require('express-session');
 const passport=require('./pass_clients');
+const PORT=process.env.PORT||4578
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
@@ -42,7 +43,7 @@ app.use('/',routes.homepage);
 
 
 
-app.listen('4578',()=>{
+app.listen(PORT,()=>{
     db.sync().then(()=>{
 
         console.log('server started and database synced');

@@ -128,6 +128,11 @@ router.post('/getuploadsforca', async(req,res)=>{
     res.send(upload);
 })
 
+router.use('/getfile',(req,res)=>{
+    const path=require('path')
+    res.sendFile(path.join(__dirname,'..',`uploads/${req.query.filename}`));
+})
+
 
 
 module.exports=router;

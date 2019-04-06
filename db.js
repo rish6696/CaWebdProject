@@ -1,11 +1,15 @@
 const Sequelize=require('sequelize');
-const db=new Sequelize({
-    dialect:'mysql',
-    host:'localhost',
-    username:'user_manager',
-    password:'user_manager',
-    database:'caprojectdb'
-})
+
+const username = "user_manager"
+const password = "user_manager"
+const host = "localhost"
+const port = "3306"
+const dbname = "caprojectdb"
+
+const DB_URL = process.env.CLEARDB_DATABASE_URL ||
+  `mysql://${username}:${password}@${host}:${port}/${dbname}`
+
+const db=new Sequelize(DB_URL);
 const Codes=db.define('codes',{
     unicode:{
         type:Sequelize.STRING(50),

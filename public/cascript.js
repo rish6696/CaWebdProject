@@ -1,3 +1,4 @@
+let filename;
 $(()=>{
     let caid;
     $.post('/requests/getcafromuserid',{
@@ -8,6 +9,7 @@ $(()=>{
             caid
         },(data)=>{
             data.forEach((object)=>{
+                filename=object.filename;
                 $('#body').append(
                     $('<tr>').append(
                         $('<th>').attr('scope','row').text(object.id)
@@ -17,6 +19,10 @@ $(()=>{
                         $('<td>').text(`${object.client.phone}`)
                     ).append(
                         $('<td>').text(`${object.filename}`)
+                    ).append(
+                        $('<td>').append(
+                            $('<button>').text('Get file').attr('class','downbuttons').attr('value',object.filename)
+                            )
                     )
                 )
             })
@@ -24,4 +30,12 @@ $(()=>{
         
 
     })
+    
+    
+   
 })
+$(document).on('click','.downbuttons',function(){
+    window.location=`http://localhost:4578/requests/getfile?filename=${filename}`
+});
+
+
