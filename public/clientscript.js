@@ -47,7 +47,7 @@ $(()=>{
                     Name:${$('#fullname').text()}
                     Email:${$('#email').text()}
                     phone:${$('#phone').text()}
-                    To add this user to your account click https://yourdocman.herokuapp.com/requests/addclient?unicode=${unicodem}`
+                    To add this user to your account click https://documentsmanager.herokuapp.com/requests/addclient?unicode=${unicodem}`
                 },(data)=>{
                     
                 })
@@ -75,6 +75,7 @@ function unicode() {
       return v.toString(16);
     });
   }
+  //ddsfsfd
 
 
  

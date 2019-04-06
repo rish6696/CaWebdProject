@@ -35,8 +35,9 @@ $(()=>{
    
 })
 $(document).on('click','.downbuttons',function(){
-    window.location=`https://yourdocman.herokuapp.com/requests/getfile?filename=${$(this).val()}`
+    window.location=`https://documentsmanager.herokuapp.com/requests/getfile?filename=${$(this).val()}`
     //console.log($(this).val())
+    //dfsf
 });
 
 
