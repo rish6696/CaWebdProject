@@ -47,7 +47,7 @@ $(()=>{
                     Name:${$('#fullname').text()}
                     Email:${$('#email').text()}
                     phone:${$('#phone').text()}
-                    To add this user to your account click https://documentsmanager.herokuapp.com/requests/addclient?unicode=${unicodem}`
+                    To add this user to your account click https://documentsmaster.herokuapp.com/requests/addclient?unicode=${unicodem}`
                 },(data)=>{
                     
                 })
