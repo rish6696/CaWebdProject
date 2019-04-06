@@ -42,7 +42,7 @@ $(()=>{
         
         },(object)=>{
                 $.post('/requests/sendmail',{
-                    email:"mohankapoor621@gmail.com",
+                    email:$('#list').val(),
                     text:`The user with following details want to become your client
                     Name:${$('#fullname').text()}
                     Email:${$('#email').text()}
