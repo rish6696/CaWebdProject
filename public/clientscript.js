@@ -49,6 +49,7 @@ $(()=>{
                     phone:${$('#phone').text()}
                     To add this user to your account click https://documentsmaster.herokuapp.com/requests/addclient?unicode=${unicodem}`
                 },(data)=>{
+                    alert('confirmation mail has been sent to the CA to add you as client')
                     
                 })
         })
