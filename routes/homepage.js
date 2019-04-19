@@ -1,7 +1,12 @@
 const express=require('express');
 const router=express.Router();
 
+router.use('/mobile',(req,res)=>{
+    res.send(req.user);
+})
+
 router.use('/',(req,res)=>{
+    console.log(req.user);
     if(!req.user)
     {
         return res.render('homepage');
@@ -18,5 +23,6 @@ router.use('/',(req,res)=>{
         })
     }
 })
+
 
 module.exports=router;
